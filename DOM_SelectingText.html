@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div id="container"> 
+    Hello world <br>
+    Welcome
+    <p style="display: none;">Secret message</p>   <!-- display: none hides the secret message element-->
+   </div> 
+
+    <script>
+
+        let text=document.getElementById("container")
+
+        // textContent- Get or Set all the text inside an element, even reads hidden text which is hidden by css
+        // does not include HTML tags (also ignores comments) , so only text inside is printed
+
+        console.log(text.textContent)
+
+        // innerHTML- Gets or Sets text inside element also html written inside element (along with comments)
+        // includes HTML tags and even hidden text
+        console.log(text.innerHTML)
+   
+
+        // innerText- Get or Set all the text inside an element, 
+        // does not incldue HTML tags, does not read hidden text
+        console.log(text.innerText)
+    </script>
+</body>
+</html>

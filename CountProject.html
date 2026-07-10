@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p id="DisCount">Count: 0</p>  
+  <button id="incBtn">Click here to increment count</button><br><br>
+  <button id="decBtn">Click here to decrement count</button><br><br>
+  <button id="resetBtn">Click here to reset count to 0</button>
+
+  <script>
+    let count=0
+    document.getElementById("incBtn").addEventListener(
+      "click", function(){
+        count++;
+        displayCount();
+      }
+    );
+
+    document.getElementById("decBtn").addEventListener(
+      "click", function(){
+        count--;
+        displayCount();
+      }
+    );
+
+     document.getElementById("resetBtn").addEventListener(
+      "click", function(){
+        count=0;
+        displayCount();
+      }
+    );
+
+    function displayCount(){
+      document.getElementById("DisCount").textContent="Count: "+count;
+    }
+
+  </script>
+</body>
+</html>

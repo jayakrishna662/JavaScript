@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading1">Welcome</h1>
+
+    Enter Your name <input id="userInput1">
+     <button onclick="submit()">Submit</button>
+
+    <p class="student">Jay</p>
+    <p class="student">Ravi</p>
+    <p class="student">Krishna</p>
+
+    <h2 id="heading2">Hello World</h2>
+    <h2 id="heading2">Hello</h2>
+
+     <script>
+        function submit(){
+
+            // i) .getElementById()
+            let name=document.getElementById("userInput1");
+            console.log(name.value); // name has element, while name.value represents whatever input you entered
+
+        }
+
+        // ii) .getElementsByClassName()
+
+        let names=document.getElementsByClassName("student"); // returns HTMLcollection of all elements with same class name
+        console.log(names)
+        console.log(names[0])
+        console.log(names[0].textContent) // Accessing element 
+        names[1].style.color="red"; // changing element
+
+        // looping through HTMLCollection
+        for(let i=0;i<names.length;i++){
+            console.log(names[i].textContent)
+        }
+
+        // iii) getElementsByTagName()
+
+        let paras=document.getElementsByTagName("p")  // returns HTMLCollection of all elements with same tag name
+        console.log(paras[0].textContent) // Accessing element
+        
+
+        // iv) querySelector() - selects only first element that matches css selector(Eg: #, . , tag name etc)
+        let text=document.querySelector("#heading2") // Using id selector
+        console.log(text.textContent) // only Hello World is printed even though both Hello World and Hello has same id
+
+        // Note: querySelector() does'nt support forEach() because ,it returns only one element
+
+        
+        // v) querySelectorAll() - selects all elements that matches css selector
+        let text1=document.querySelectorAll("#heading2") 
+        console.log(text1) // Returns NodeList containing all elements
+        console.log(text1[0].textContent) // Accessing element
+        console.log(text1[1].textContent)
+     
+        // looping using forEach, forEach expects function as argument,bcz forEach goes through each element in list
+        // but doesnt know what task to perform so we use function to perform task
+
+        text1.forEach(
+            function(element){
+                console.log(element.textContent)
+            }
+        )
+     </script>
+</body>
+</html>
