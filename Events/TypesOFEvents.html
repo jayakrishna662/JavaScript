@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Test click Event<button id="btn1">Button 1</button> <br> <br>
+    Test DB_click Event<button id="btn2">Button 2</button> <br> <br>
+    Test Mouse Events<button id="btn3">Button 3</button> <br> <br>
+    Test Keyboard Events<input id="input1" placeholder="Type something"> <br> <br>
+    Test input Event<input id="input2"> <br> <br>
+    Test change Event <input id="input3">
+
+    <script>
+
+        // Button events
+        const btn1=document.getElementById("btn1");
+        const btn2=document.getElementById("btn2");
+        const btn3=document.getElementById("btn3");
+
+        // click event
+        btn1.addEventListener("click",(event)=>{
+            console.log(event.type)     // shows event name
+            console.log(event.target)   // tells which element triggered the evet
+        })
+
+        // double click event
+        btn2.addEventListener("dblclick",(e)=>{
+            console.log(e.type)  
+            console.log(e.target)
+            if(e.target.textContent==="Button 2"){
+                e.target.textContent="Click here to change button color" // change button textContent
+                e.target.style.color="red" // change button text color
+                e.target.style.background="black" // change button color
+            }
+            else{
+                e.target.textContent="Button 2"
+                e.target.style.color="black"
+                e.target.style.background="white"
+            }
+        })
+
+        // mouseover event
+        btn3.addEventListener("mouseover", () => {
+            console.log("Mouse entered");
+        });
+
+        // mouse out event
+        btn3.addEventListener("mouseout",()=>{
+            console.log("Mouse Out")
+        })
+        
+        // Keyboard events
+        // Keydown event
+        document.getElementById("input1").addEventListener("keydown",(event)=>{ // Run the function whenever the user presses a key in input box
+            console.log("You pressed:", event.key);   // prints whatever key user pressed (event.key tells which key is pressed)
+         })
+         // Keyup event
+        document.getElementById("input1").addEventListener("keyup",(event)=>{ // Run the function whenever the user release a key
+            console.log("You Released: ", event.key);   // prints whatever key is released (event.key tells which key is released)
+         })
+
+        // input event : Unlike keydown which gives only currently pressed key, input event gives you the updated value of the input.
+        document.getElementById("input2").addEventListener("input", (event) => {
+            console.log(event.target.value); // Prints the current text inside the input box
+        });
+
+        // change event: Runs only after the value is changed and the user finishes editing (usually when the input loses focus).
+        document.getElementById("input3").addEventListener("change",(event)=>{
+            console.log(event.target.value)
+        })
+    </script>
+</body>
+</html>
